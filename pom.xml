@@ -36,4 +36,5 @@
             </plugin>
         </plugins>
     </build>
+    <name>PongServer_Kevin</name>
 </project>

@@ -64,17 +64,17 @@ public class Simulation implements PongConstants {
                     ball.setRay(newLoc);
                 else
                     ball.move(time);
-                 Ray newLoc2 = boxOne.bounceRay(ball2.getRay(), time);
-        if(newLoc != null)
-            ball2.setRay(newLoc);
+        Ray newLoc2 = boxOne.bounceRay(ball2.getRay(), time);
+        if(newLoc2 != null)
+            ball2.setRay(newLoc2);
         else {
-            newLoc = boxTwo.bounceRay(ball2.getRay(), time);
-            if(newLoc != null)
-                ball2.setRay(newLoc);         
+            newLoc2 = boxTwo.bounceRay(ball2.getRay(), time);
+            if(newLoc2 != null)
+                ball2.setRay(newLoc2);         
             else {
-                newLoc = outer.bounceRay(ball2.getRay(), time);
-                if(newLoc != null)
-                    ball2.setRay(newLoc);
+                newLoc2 = outer.bounceRay(ball2.getRay(), time);
+                if(newLoc2 != null)
+                    ball2.setRay(newLoc2);
                 else
                     ball2.move(time);
             }                
