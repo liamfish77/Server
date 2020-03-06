@@ -9,5 +9,5 @@ public interface PongConstants {
     public static double THICKNESS = 20.0;
     public static double LENGTH = 50.0;
     public static double WIDTH = 300.0;
-    public static double HEIGHT = 10.0;
+    public static double HEIGHT = 480.0;
 }
