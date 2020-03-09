@@ -25,10 +25,10 @@ public class Simulation implements PongConstants {
     public Simulation(int dX,int dY)
     {
         boxList = new ArrayList<Box>();
-        outer = new Box(0,0,WIDTH+250,HEIGHT,false,false,0);
+        outer = new Box(0,0,WIDTH+340,HEIGHT,false,false,0);
         boxList.add(outer);
         ball = new Ball(WIDTH/2,WIDTH/2,dX,dY);
-        ball2 = new Ball(WIDTH/2,WIDTH/2,dX,dY);
+        ball2 = new Ball(WIDTH/2,WIDTH/2,-dX,dY);
         boxOne = new Box(MARGIN+20,WIDTH+ MARGIN +200,THICKNESS+10,LENGTH-20,true,false,0);
         boxList.add(boxOne);
         boxTwo = new Box(MARGIN +40,WIDTH+ MARGIN+ 200,THICKNESS+10,LENGTH-20,true,false,0);
@@ -51,37 +51,6 @@ public class Simulation implements PongConstants {
     public void evolve(double time)
     {
         lock.lock();
-//        Ray newLoc = boxOne.bounceRay(ball.getRay(), time);
-//        if(newLoc != null)
-//            ball.setRay(newLoc);
-//        else {
-//            newLoc = boxTwo.bounceRay(ball.getRay(), time);
-//            if(newLoc != null)
-//                ball.setRay(newLoc);         
-//            else {
-//                newLoc = outer.bounceRay(ball.getRay(), time);
-//                if(newLoc != null)
-//                    ball.setRay(newLoc);
-//                else
-//                    ball.move(time);
-//            }
-//        }
-//        Ray newLoc2 = boxOne.bounceRay(ball2.getRay(), time);
-//        if(newLoc2 != null)
-//            ball2.setRay(newLoc2);
-//        else {
-//            newLoc2 = boxTwo.bounceRay(ball2.getRay(), time);
-//            if(newLoc2 != null)
-//                ball2.setRay(newLoc2);         
-//            else {
-//                newLoc2 = outer.bounceRay(ball2.getRay(), time);
-//                if(newLoc2 != null)
-//                    ball2.setRay(newLoc2);
-//                else
-//                    ball2.move(time);
-//            }                
-//        }
-        
         boolean boxHit = false;
         for (Box i : boxList) {
             Ray newLoc3 = i.bounceRay(ball.getRay(), time);
@@ -157,6 +126,8 @@ public class Simulation implements PongConstants {
         Point ballLoc = ball.getRay().origin;
         Point ballLoc2 = ball2.getRay().origin;
         return Double.toString(ballLoc.x) + ' ' + ballLoc.y + ' ' + ballLoc2.x + ' ' +ballLoc2.y + ' ' +
-                boxOne.x + ' ' + boxTwo.x;
+                boxOne.x + ' ' + boxTwo.x + ' ' + brick1.getTimesHit() + ' ' + brick2.getTimesHit()
+                 + ' ' + brick3.getTimesHit() + ' ' + brick4.getTimesHit() + ' ' + brick5.getTimesHit()
+                 + ' ' + brick6.getTimesHit();
     }
 }

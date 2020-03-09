@@ -40,6 +40,18 @@ public class Box {
     
     public void gotHit() {
         timesHit++;
+        if (timesHit >= 4) {
+            this.x = 0.0;
+            this.y = 0.0;
+            this.width = 0.0;
+            this.height = 0.0;
+            walls.clear();
+            //Change the box in a way that can no longer change the path of the ball
+        }
+    }
+    
+    public String getTimesHit() {
+        return Integer.toString(timesHit);
     }
     
     public Ray bounceRay(Ray in,double time)
@@ -78,4 +90,5 @@ public class Box {
             return true;
         return false;
     }
+
 }
